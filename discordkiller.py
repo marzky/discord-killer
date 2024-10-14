@@ -3,23 +3,20 @@ import psutil
 import time
 import subprocess
 import keyboard
+import json
 
 os.system('title Femboy Discord Killer')
+with open('femboy_config.json', 'r') as config_file:
+    config = json.load(config_file)
 
 
-# Replace with the actual path to your Discord.exe here
-DISCORD_PATH = "C:\\Users\\Admin\\AppData\\Local\\Discord\\app-1.0.9166\\Discord.exe"
-# Replace with the actual trigger button here
-TRIGGER_BUTTON = ('ctrl+alt+]')
-# Replace with the actual sleeping time before reconnecting to the call
-SLEEPING_TIME = 10
-# Replace with the actual reconnect button
-RECONNECT_BUTTON = 'F13'
-# Replace with the actual sleep after closing Discord time
-KILLED_APP_SLEEPING_TIME = 2
+DISCORD_PATH = config["DISCORD_PATH"]
+TRIGGER_BUTTON = config["TRIGGER_BUTTON"]
+SLEEPING_TIME = config["SLEEPING_TIME"]
+RECONNECT_BUTTON = config["RECONNECT_BUTTON"]
+KILLED_APP_SLEEPING_TIME = config["KILLED_APP_SLEEPING_TIME"]
 
 console_clear = lambda: os.system('cls')
-
 restart_count = 0
 cat_line = "😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀"
 
