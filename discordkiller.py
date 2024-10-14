@@ -11,9 +11,9 @@ with open('femboy_config.json', 'r') as config_file:
 
 
 DISCORD_PATH = config["DISCORD_PATH"]
-TRIGGER_BUTTON = config["TRIGGER_BUTTON"]
+TRIGGER_HOTKEY = config["TRIGGER_HOTKEY"]
 SLEEPING_TIME = config["SLEEPING_TIME"]
-RECONNECT_BUTTON = config["RECONNECT_BUTTON"]
+RECONNECT_KEY = config["RECONNECT_KEY"]
 KILLED_APP_SLEEPING_TIME = config["KILLED_APP_SLEEPING_TIME"]
 
 console_clear = lambda: os.system('cls')
@@ -27,9 +27,9 @@ def greeting_message():
         print(f"\t  \033[32mSuccesfully re-opened Discord {restart_count} time(s)!\033[0m\n")
     else:
         print("")
-    print(f"Press \" \033[4m{TRIGGER_BUTTON.title()}\033[0m \" to reboot Discord.\n")
+    print(f"Press \" \033[4m{TRIGGER_HOTKEY.title()}\033[0m \" to reboot Discord.\n")
     print(f"Sleeping time before reconnecting to the call is: {SLEEPING_TIME}.\n")
-    print(f"Your Discord reconnect button is: {RECONNECT_BUTTON}.\n")
+    print(f"Your Discord reconnect button is: {RECONNECT_KEY}.\n")
     print(f"Your Discord path is: {DISCORD_PATH}.\n")
     print(f"\n{cat_line}\n")
 
@@ -52,7 +52,7 @@ def reconnect_to_call():
     time.sleep(SLEEPING_TIME)
 
     # Simulate pressing necessary keys to reconnect to the last call
-    keyboard.press_and_release(RECONNECT_BUTTON)
+    keyboard.press_and_release(RECONNECT_KEY)
 
 # Main body, kinda
 def restart_discord():
@@ -75,5 +75,5 @@ def restart_discord():
     greeting_message()
 
 
-keyboard.add_hotkey(TRIGGER_BUTTON, restart_discord)
+keyboard.add_hotkey(TRIGGER_HOTKEY, restart_discord)
 keyboard.wait()
