@@ -20,12 +20,21 @@ KILLED_APP_SLEEPING_TIME = 2
 
 console_clear = lambda: os.system('cls')
 
+restart_count = 0
+cat_line = "😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀"
+
 def greeting_message():
-    print("Omagaa hiiiyaa!! I am \033[34mDISCORD\033[0m \033[31mKILLER\033[0m, \033[35mnya!\033[0m\n\n")
+    print(f"\n{cat_line}\n")
+    print("\tOmagaa hiiiyaa!! I am \033[36mDISCORD\033[0m \033[31mKILLER\033[0m, \033[35mnya!\033[0m 🥰")
+    if restart_count != 0:
+        print(f"\t  \033[32mSuccesfully re-opened Discord {restart_count} time(s)!\033[0m\n")
+    else:
+        print("")
     print(f"Press \" \033[4m{TRIGGER_BUTTON.title()}\033[0m \" to reboot Discord.\n")
     print(f"Sleeping time before reconnecting to the call is: {SLEEPING_TIME}.\n")
     print(f"Your Discord reconnect button is: {RECONNECT_BUTTON}.\n")
     print(f"Your Discord path is: {DISCORD_PATH}.\n")
+    print(f"\n{cat_line}\n")
 
 greeting_message()
 
@@ -50,19 +59,22 @@ def reconnect_to_call():
 
 # Main body, kinda
 def restart_discord():
+    global restart_count
+    restart_count += 1
     console_clear()
-    print("Closing Discord.exe...\n")
+
+    print(f"\n{cat_line}\n")
+    print("☠️ Closing Discord.exe...\n")
     close_discord()
-    print(f"Sleeping for {KILLED_APP_SLEEPING_TIME} seconds...\n")
+    print(f"😴 Sleeping for {KILLED_APP_SLEEPING_TIME} seconds...\n")
     time.sleep(KILLED_APP_SLEEPING_TIME)
-    print("Opening Discord.exe...\n")
+    print("🎃 Opening Discord.exe...\n")
     open_discord()
-    print(f"Sleeping for {SLEEPING_TIME} seconds...\n")
+    print(f"😴 Sleeping for {SLEEPING_TIME} seconds...\n")
     reconnect_to_call()
-    print("Reconnected to the voice channel. Sleeping for 5 seconds before restarting.")
+    print("🥳 Reconnected to the voice channel. Sleeping for 5 seconds before restarting.")
     time.sleep(5)
     console_clear()
-    print(f"\n\033[32mSuccesfully re-opened Discord!\033[0m\n")
     greeting_message()
 
 
