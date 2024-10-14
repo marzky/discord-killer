@@ -1,6 +1,6 @@
 {
-    "DISCORD_PATH": "C:\\Users\\Admin\\AppData\\Local\\Discord\\app-1.0.9166\\Discord.exe",
-    "TRIGGER_HOTKEY": "ctrl+alt+]",
+    "DISCORD_PATH": "path\\to\\your\\Discord.exe",
+    "TRIGGER_HOTKEY": "YOUR TRIGER HOTKEY",
     "SLEEPING_TIME": 10,
     "RECONNECT_KEY": "F13",
     "KILLED_APP_SLEEPING_TIME": 2
