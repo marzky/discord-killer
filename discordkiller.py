@@ -23,7 +23,7 @@ cat_line = "😻😼🙀😸😻😼🙀😸😻😼🙀😸😻😼🙀😸😻
 def greeting_message():
     print(f"\n{cat_line}\n")
     print("\tOmagaa hiiiyaa!! I am \033[36mDISCORD\033[0m \033[31mKILLER\033[0m, \033[35mnya!\033[0m 🥰")
-    if restart_count != 0:
+    if restart_count:
         print(f"\t  \033[32mSuccesfully re-opened Discord {restart_count} time(s)!\033[0m\n")
     else:
         print("")
