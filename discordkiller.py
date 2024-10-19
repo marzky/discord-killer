@@ -1,13 +1,13 @@
 import os
-import psutil
-import time
-import subprocess
-import keyboard
-import json
+from psutil import process_iter
+from time import sleep
+from subprocess import Popen
+from keyboard import wait, press_and_release, add_hotkey
+from json import load
 
 os.system('title Femboy Discord Killer')
 with open('femboy_config.json', 'r') as config_file:
-    config = json.load(config_file)
+    config = load(config_file)
 
 
 DISCORD_PATH = config["DISCORD_PATH"]
@@ -37,22 +37,22 @@ greeting_message()
 
 # Find and kill the Discord process
 def close_discord():
-    for proc in psutil.process_iter():
+    for proc in process_iter():
         if proc.name() == "Discord.exe":
             proc.kill()
 
 # Opens new Discord.exe
 def open_discord():
     with open(os.devnull, 'w') as devnull:
-        subprocess.Popen([DISCORD_PATH], stdout=devnull, stderr=devnull)
+        Popen([DISCORD_PATH], stdout=devnull, stderr=devnull)
 
 # Reconnects to an old call using your own Discord bind
 def reconnect_to_call():
     # Wait for Discord to fully load (Adjust the time as necessary)
-    time.sleep(SLEEPING_TIME)
+    sleep(SLEEPING_TIME)
 
     # Simulate pressing necessary keys to reconnect to the last call
-    keyboard.press_and_release(RECONNECT_KEY)
+    press_and_release(RECONNECT_KEY)
 
 # Main body, kinda
 def restart_discord():
@@ -64,16 +64,16 @@ def restart_discord():
     print("☠️ Closing Discord.exe...\n")
     close_discord()
     print(f"😴 Sleeping for {KILLED_APP_SLEEPING_TIME} seconds...\n")
-    time.sleep(KILLED_APP_SLEEPING_TIME)
+    sleep(KILLED_APP_SLEEPING_TIME)
     print("🎃 Opening Discord.exe...\n")
     open_discord()
     print(f"😴 Sleeping for {SLEEPING_TIME} seconds...\n")
     reconnect_to_call()
     print("🥳 Reconnected to the voice channel. Sleeping for 5 seconds before restarting.")
-    time.sleep(5)
+    sleep(5)
     console_clear()
     greeting_message()
 
 
-keyboard.add_hotkey(TRIGGER_HOTKEY, restart_discord)
-keyboard.wait()
+add_hotkey(TRIGGER_HOTKEY, restart_discord)
+wait()
