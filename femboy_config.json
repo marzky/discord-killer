@@ -1,0 +1,7 @@
+{
+    "DISCORD_PATH": "path\to\your\discord\in\this\format\Discord.exe",
+    "TRIGGER_HOTKEY": "ctrl+alt+]",
+    "SLEEPING_TIME": 10,
+    "RECONNECT_KEY": "F13",
+    "KILLED_APP_SLEEPING_TIME": 2
+}
