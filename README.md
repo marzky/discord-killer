@@ -5,7 +5,7 @@ This script might help if for some reason user needs to manually restart Discord
 To properly use, requires one-time fake key pusher script activation while changing Discord "Switch to Voice Channel" action keybind.
 
 ## JSON-file configuration
-### "DISCORD_PATH": "path\\to\\your\\discord\\in\\this\\format\\Discord.exe",
+### "DISCORD_PATH": "path\\\to\\\your\\\discord\\\in\\\this\\\format\\\Discord.exe",
 Allows you to change your Discord application path.
 > [!IMPORTANT]
 > Don't forget to leave "Discord.exe" by the end of your path.
