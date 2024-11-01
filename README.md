@@ -25,10 +25,27 @@ Allows you to change the virtual key used for Discord voice channel reconnection
 > [!NOTE]
 > Only adjust if your keyboard actually have F13 key. Adjusting will also impact fakekeypusher.py script.
 
-### "KILLED_APP_SLEEPING_TIME": 2
+### "KILLED_APP_SLEEPING_TIME": 2,
 Allows you to change the time script will spend sleeping after killing your Discord application.
 > [!NOTE]
 > Only adjust if your Discord application takes more time to shut down than the default value.
+
+### "SWITCHING_MONITORS": 0,
+Allows you to change the monitor Discord.exe will be opened on. 
+> [!IMPORTANT]
+> 0 - Not using the feature. If set, you can ignore all the following lines.
+> Any other number than 0 - Using the feature.
+
+### "MONITOR_SIDE": "left",
+Allows you to choose which side your second monitor at. 
+> [!TIP]
+> Default value is "right", and it only changes on "left" if you set anything other than "right".
+
+### "SCREEN_WIDTH": 1920,
+The width of your second screen.
+
+### "SCREEN_HEIGHT": 1080
+The height of your second screen.
 
 ## Fake key pusher script
 To properly use the script, user required to one-time use the fake key pusher script while changing Discord "Switch to Voice Channel" action keybind.
